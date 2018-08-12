@@ -6,8 +6,8 @@ It's a service to reduce url-links. Front-end is developed on a Node.js. The dat
 you need:
   1. Download and install [node.js](https://nodejs.org/en/download/);
   2. Download and install [PostgreSQL](https://www.openscg.com/bigsql/postgresql/installers.jsp/);
-  3. Expand data base structure:
-  3.1 table users and sequence for it
+  3. Expand data base structure;
+  3.1 Table "users" and sequence for it:
 ~~~~sql
 CREATE SEQUENCE public.users_id_seq;
 
@@ -29,8 +29,10 @@ TABLESPACE pg_default;
 ALTER TABLE public.users
     OWNER to postgres;
 ~~~~
- 3.2 table users and sequence for it
+ 3.2 Table 'users' and sequence for it:
  ~~~~sql
+ CREATE SEQUENCE public.urldata_id_seq;
+ 
  CREATE TABLE public.urldata
 (
     id integer NOT NULL DEFAULT nextval('urldata_id_seq'::regclass),
@@ -51,7 +53,7 @@ ALTER TABLE public.urldata
 COMMENT ON COLUMN public.urldata.url
     IS 'ограничен для ie';
 ~~~~
-  3.3 table session
+  3.3 table "session" and sequence for it:
 ~~~~sql
 CREATE TABLE public.session
 (
@@ -68,7 +70,10 @@ TABLESPACE pg_default;
 ALTER TABLE public.session
     OWNER to postgres;
 ~~~~
-  4. Edit the config file (/config/config.js)
+  4. Edit the config file (/config/config.js);
+  5. Download node npm-manager:
+  `$ node npm i -g`
+  
 
 
 
