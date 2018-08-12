@@ -3,4 +3,5 @@ It's a service to reduce url-links. Front-end is developed on a Node.js. The dat
 ***
 #before started
 you need:
-1. Download and install <a href="https://nodejs.org/en/download/">node.js<a>.
+  1. Download and install [node.js](https://nodejs.org/en/download/)
+  2. Download and install
