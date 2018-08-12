@@ -5,9 +5,8 @@ const router = express.Router();
 const dao = require('../dao/dao');//db module
 
 router.get('/', function (req, res) {
-    const sid = req.cookies['sid'];
-
-    /*if (sid) {
+    /*const sid = req.cookies['sid'];
+    if (sid) {
         req.sessionStore.get(sid, function (err, session) {
             if (err || !session) {
                 res.redirect('login');
@@ -21,7 +20,7 @@ router.get('/', function (req, res) {
     } else {
         res.redirect('login');
     }*/
-    if (session.authorized) {
+    if (req.session.authorized) {
         res.sendFile('main.html', {root: './public'});
     } else {
         res.redirect('login');
