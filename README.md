@@ -6,7 +6,7 @@ It's a service to reduce url-links. Front-end is developed on a Node.js. The dat
 you need:
   1. Download and install [node.js](https://nodejs.org/en/download/);
   2. Download and install [PostgreSQL](https://www.openscg.com/bigsql/postgresql/installers.jsp/);
-  3. Expand data base structure;
+  3. Expand data base structure:
   
   3.1 Table "users" and sequence for it:
 ~~~~sql
