@@ -6,13 +6,72 @@ It's a service to reduce url-links. Front-end is developed on a Node.js. The dat
 you need:
   1. Download and install [node.js](https://nodejs.org/en/download/);
   2. Download and install [PostgreSQL](https://www.openscg.com/bigsql/postgresql/installers.jsp/);
-  3. Expand the tables:
-  * users
+  3. Expand bd structure:
+  3.1 table users and sequence for it
 ~~~~sql
-update employee
-  set salary = salary * 2
-  where salary < 100000
+CREATE SEQUENCE public.users_id_seq;
+
+ALTER SEQUENCE public.users_id_seq
+    OWNER TO postgres;
+
+CREATE TABLE public.users
+(
+    login character varying(100) COLLATE pg_catalog."default" NOT NULL,
+    password character varying(100) COLLATE pg_catalog."default" NOT NULL,
+    id integer NOT NULL DEFAULT nextval('users_id_seq'::regclass),
+    CONSTRAINT users_pkey PRIMARY KEY (id)
+)
+WITH (
+    OIDS = FALSE
+)
+TABLESPACE pg_default;
+
+ALTER TABLE public.users
+    OWNER to postgres;
 ~~~~
+ 3.2 table users and sequence for it
+ ~~~~sql
+ CREATE TABLE public.urldata
+(
+    id integer NOT NULL DEFAULT nextval('urldata_id_seq'::regclass),
+    url character varying(2048) COLLATE pg_catalog."default",
+    "shortUrl" character varying(2048) COLLATE pg_catalog."default",
+    "shortUrlUsageCount" integer NOT NULL DEFAULT 0,
+    "createDate" date,
+    CONSTRAINT urldata_pkey PRIMARY KEY (id)
+)
+WITH (
+    OIDS = FALSE
+)
+TABLESPACE pg_default;
+
+ALTER TABLE public.urldata
+    OWNER to postgres;
+
+COMMENT ON COLUMN public.urldata.url
+    IS 'ограничен для ie';
+~~~~
+  3.3 table session
+~~~~sql
+CREATE TABLE public.session
+(
+    sid character varying COLLATE pg_catalog."default" NOT NULL,
+    sess json NOT NULL,
+    expire timestamp(6) without time zone NOT NULL,
+    CONSTRAINT session_pkey PRIMARY KEY (sid)
+)
+WITH (
+    OIDS = FALSE
+)
+TABLESPACE pg_default;
+
+ALTER TABLE public.session
+    OWNER to postgres;
+~~~~
+  4. Edit the config file (/config/config.js)
+
+
+
   
 
 
