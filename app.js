@@ -30,7 +30,7 @@ app.use(session({
     //expires: true,
 }));
 
-//every day in 23.59 delete all old url
+//every day in 23:59 cronJob delete all old url (age > 15 day)
 new cronJob('59 23 * * * *', function(){
     dao.deleteOldUrl();
 }).start();

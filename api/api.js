@@ -3,10 +3,12 @@ const request = require('request-promise');
 const dao = require('../dao/dao');//db module
 const api = express.Router();
 
+
+//const router = require('../router/router');//db module
+
 api.post('/login', function(req, res) {
     const login = req.body.login;
     const password = req.body.password;
-
 
     if (!login || !password) {
         req.session.authorized = false;
@@ -15,12 +17,11 @@ api.post('/login', function(req, res) {
         dao.checkUser(login, password)
             .then(() => {
                 req.session.authorized = true;
-                res.status(200).end();
+                res.sendFile('main.html', {root: './public'});
+
             })
             .catch((error) => {
-                //req.session.authorized = false;
                 res.status(401).end();
-                //res.sendStatus(401);
             });
     }
 });
@@ -36,7 +37,8 @@ api.post('/register', function(req, res) {
         dao.addUser(login, password)
             .then(() => {
                 req.session.authorized = true;
-                res.status(200).end();
+                res.sendFile('main.html', {root: './public'});
+                //res.status(200).end();
             })
             .catch(() => {
                 res.status(401).end();
