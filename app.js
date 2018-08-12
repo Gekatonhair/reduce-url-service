@@ -17,7 +17,7 @@ const app = express();
 app.use('/public', express.static(__dirname + "/public"));//share folder 'public'
 app.use(bodyParser.urlencoded({
     extended: true
-}));//app can parse from data
+}));//app can parse form data
 app.use(bodyParser.json());//app can parse json
 app.use(cookieParser());
 app.use(session({
@@ -30,6 +30,7 @@ app.use(session({
     //expires: true,
 }));
 
+//every day in 23.59 delete all old url
 new cronJob('59 23 * * * *', function(){
     dao.deleteOldUrl();
 }).start();
