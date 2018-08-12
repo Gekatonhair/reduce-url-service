@@ -3,9 +3,6 @@ const request = require('request-promise');
 const dao = require('../dao/dao');//db module
 const api = express.Router();
 
-
-//const router = require('../router/router');//db module
-
 api.post('/login', function(req, res) {
     const login = req.body.login;
     const password = req.body.password;
