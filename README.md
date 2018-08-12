@@ -30,7 +30,7 @@ TABLESPACE pg_default;
 ALTER TABLE public.users
     OWNER to postgres;
 ~~~~
- 3.2 Table 'users' and sequence for it:
+ 3.2 Table "urldata" and sequence for it:
  ~~~~sql
  CREATE SEQUENCE public.urldata_id_seq;
  
