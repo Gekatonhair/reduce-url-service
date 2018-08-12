@@ -7,6 +7,7 @@ you need:
   1. Download and install [node.js](https://nodejs.org/en/download/);
   2. Download and install [PostgreSQL](https://www.openscg.com/bigsql/postgresql/installers.jsp/);
   3. Expand data base structure;
+  
   3.1 Table "users" and sequence for it:
 ~~~~sql
 CREATE SEQUENCE public.users_id_seq;
@@ -71,8 +72,8 @@ ALTER TABLE public.session
     OWNER to postgres;
 ~~~~
   4. Edit the config file (/config/config.js);
-  5. Download node npm-manager:
-  `$ node npm i -g`
+  5. Download node npm-manager: `$ node npm i -g`;
+  5. Start service: `$ node start.js`;
   
 
 
