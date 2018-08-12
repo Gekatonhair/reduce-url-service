@@ -1,12 +1,3 @@
-/*
-cd C:\Users\Mageridon\Desktop\umbrella 2
-nodemon start.js
-
-ngrok http 8080
-*/
-
-
-
 const app = require("./app");
 const config = require('./config/config');
 

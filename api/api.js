@@ -10,6 +10,7 @@ api.post('/login', function(req, res) {
     const login = req.body.login;
     const password = req.body.password;
 
+
     if (!login || !password) {
         req.session.authorized = false;
         res.sendStatus(400);//bad request
