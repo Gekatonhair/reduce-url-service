@@ -2,7 +2,7 @@
 It's a service to reduce url-links. Front-end is developed on a Node.js. The database - postgreSQL.
 ***
 
-# before started
+# Before started
 you need:
   1. Download and install [node.js](https://nodejs.org/en/download/);
   2. Download and install [PostgreSQL](https://www.openscg.com/bigsql/postgresql/installers.jsp/);
@@ -73,7 +73,9 @@ ALTER TABLE public.session
 ~~~~
   4. Edit the config file (/config/config.js);
   5. Download node npm-manager: `$ node npm i -g`;
-  5. Start service: `$ node start.js`;
+  
+  # Start
+  `$ node start.js`;
   
 
 
