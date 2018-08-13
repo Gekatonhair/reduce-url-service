@@ -4,7 +4,7 @@ const config = {
             host: 'localhost', // server name or IP address;
             port: 5432,
             database: 'postgres',
-            user: 'postgres',
+            user: 'admin',
             password: 'admin'
         }
     },
@@ -14,7 +14,7 @@ const config = {
     },
     session: {
         secret: '0558',
-        //key: 'sid',
+        key: 'sid',
         cookie: {
             secure: true,
             path: '/',
