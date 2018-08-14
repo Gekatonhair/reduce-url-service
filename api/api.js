@@ -31,7 +31,7 @@ api.post('/register', function(req, res) {
     const password = req.body.password;
 
     if (!login || !password) {
-        req.session.authorized = false;
+
         res.sendStatus(400);//bad request
     } else {
         dao.addUser(login, password)
